@@ -61,7 +61,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aab-fn-Kzy">
-                                <rect key="frame" x="28" y="286" width="52" height="30"/>
+                                <rect key="frame" x="20" y="286" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -70,7 +70,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vly-Tj-gcy">
-                                <rect key="frame" x="128" y="286" width="52" height="30"/>
+                                <rect key="frame" x="124" y="286" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -79,7 +79,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-Nk-rAx">
-                                <rect key="frame" x="230" y="286" width="52" height="30"/>
+                                <rect key="frame" x="226" y="286" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -221,7 +221,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBM-f8-2yJ">
-                                <rect key="frame" x="333" y="286" width="52" height="30"/>
+                                <rect key="frame" x="326" y="286" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -248,7 +248,6 @@
         <!--Stock View Controller-->
         <scene sceneID="lS0-3F-t9y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GBb-1z-l8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="QVu-ET-Pq9" customClass="StockViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J1C-9s-aqQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -433,6 +432,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBb-1z-l8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1867" y="94"/>
         </scene>
