@@ -13,6 +13,7 @@
 		B1633C2025F3322E00A4D5DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1633C1E25F3322E00A4D5DA /* Main.storyboard */; };
 		B1633C2225F3323400A4D5DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1633C2125F3323400A4D5DA /* Assets.xcassets */; };
 		B1633C2525F3323400A4D5DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1633C2325F3323400A4D5DA /* LaunchScreen.storyboard */; };
+		B1633C2E25F355C300A4D5DA /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1633C2D25F355C300A4D5DA /* StockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B1633C2125F3323400A4D5DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1633C2425F3323400A4D5DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1633C2625F3323400A4D5DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1633C2D25F355C300A4D5DA /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				B1633C1825F3322E00A4D5DA /* AppDelegate.swift */,
 				B1633C1A25F3322E00A4D5DA /* SceneDelegate.swift */,
 				B1633C1C25F3322E00A4D5DA /* ViewController.swift */,
+				B1633C2D25F355C300A4D5DA /* StockViewController.swift */,
 				B1633C1E25F3322E00A4D5DA /* Main.storyboard */,
 				B1633C2125F3323400A4D5DA /* Assets.xcassets */,
 				B1633C2325F3323400A4D5DA /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				B1633C1D25F3322E00A4D5DA /* ViewController.swift in Sources */,
 				B1633C1925F3322E00A4D5DA /* AppDelegate.swift in Sources */,
 				B1633C1B25F3322E00A4D5DA /* SceneDelegate.swift in Sources */,
+				B1633C2E25F355C300A4D5DA /* StockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
