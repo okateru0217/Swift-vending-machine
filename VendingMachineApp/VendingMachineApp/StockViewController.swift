@@ -8,14 +8,20 @@
 import UIKit
 
 class StockViewController: UIViewController {
-
+    
+    @IBOutlet weak var tenYenStockLabel: UILabel!
+    @IBOutlet weak var fiftyYenStockLabel: UILabel!
+    @IBOutlet weak var oneHundredYenStockLabel: UILabel!
+    @IBOutlet weak var fiveHundredYenStockLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tenYenStockLabel.text = String("\(changeManagement.tenYenStock)枚")
+        fiftyYenStockLabel.text = String("\(changeManagement.fiftyYenStock)枚")
+        oneHundredYenStockLabel.text = String("\(changeManagement.oneHundredYenStock)枚")
+        fiveHundredYenStockLabel.text = String("\(changeManagement.fiveHundredYenStock)枚")
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -25,5 +31,4 @@ class StockViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
