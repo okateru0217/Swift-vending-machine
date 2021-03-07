@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var putMoney: UILabel!
     
+    // 投入金額
     var addPutMoney: Int = 0
     
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
         case .tenYen:
             addPutMoney += 10
             putMoney.text = String("\(addPutMoney)円")
+            
         case .fiftyYen:
             addPutMoney += 50
             putMoney.text = String("\(addPutMoney)円")
@@ -44,5 +46,7 @@ class ViewController: UIViewController {
             putMoney.text = String("\(addPutMoney)円")
         default: break
         }
+        // 釣り銭残高を増やす
+        changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
     }
 }
