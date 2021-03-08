@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B148987225F4602700ED0FC9 /* MoneyManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148987125F4602700ED0FC9 /* MoneyManagement.swift */; };
+		B148987A25F4EB7B00ED0FC9 /* DrinkManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148987925F4EB7B00ED0FC9 /* DrinkManagement.swift */; };
 		B1633C1925F3322E00A4D5DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1633C1825F3322E00A4D5DA /* AppDelegate.swift */; };
 		B1633C1B25F3322E00A4D5DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1633C1A25F3322E00A4D5DA /* SceneDelegate.swift */; };
 		B1633C1D25F3322E00A4D5DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1633C1C25F3322E00A4D5DA /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		B148987125F4602700ED0FC9 /* MoneyManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyManagement.swift; sourceTree = "<group>"; };
+		B148987925F4EB7B00ED0FC9 /* DrinkManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManagement.swift; sourceTree = "<group>"; };
 		B1633C1525F3322E00A4D5DA /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1633C1825F3322E00A4D5DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1633C1A25F3322E00A4D5DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B148987725F4EAF300ED0FC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B148987125F4602700ED0FC9 /* MoneyManagement.swift */,
+				B148987925F4EB7B00ED0FC9 /* DrinkManagement.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B1633C0C25F3322E00A4D5DA = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +76,7 @@
 				B1633C1C25F3322E00A4D5DA /* ViewController.swift */,
 				B1633C2D25F355C300A4D5DA /* StockViewController.swift */,
 				B1633C1E25F3322E00A4D5DA /* Main.storyboard */,
-				B148987125F4602700ED0FC9 /* MoneyManagement.swift */,
+				B148987725F4EAF300ED0FC9 /* Controller */,
 				B1633C2125F3323400A4D5DA /* Assets.xcassets */,
 				B1633C2325F3323400A4D5DA /* LaunchScreen.storyboard */,
 				B1633C2625F3323400A4D5DA /* Info.plist */,
@@ -145,6 +156,7 @@
 			files = (
 				B1633C1D25F3322E00A4D5DA /* ViewController.swift in Sources */,
 				B1633C1925F3322E00A4D5DA /* AppDelegate.swift in Sources */,
+				B148987A25F4EB7B00ED0FC9 /* DrinkManagement.swift in Sources */,
 				B1633C1B25F3322E00A4D5DA /* SceneDelegate.swift in Sources */,
 				B1633C2E25F355C300A4D5DA /* StockViewController.swift in Sources */,
 				B148987225F4602700ED0FC9 /* MoneyManagement.swift in Sources */,
