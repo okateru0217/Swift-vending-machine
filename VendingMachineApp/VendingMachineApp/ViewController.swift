@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     // 投入金額ラベル
     @IBOutlet weak var putMoney: UILabel!
+    
     // 購入ボタン
     @IBOutlet weak var waterPurchaseButton: UIButton!
     @IBOutlet weak var strawberryOdenPurchaseButton: UIButton!
@@ -27,8 +28,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allPurchaseButtonLit()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        allPurchaseButtonLit()
     }
     
     // 購入可否に応じて、「購入」ボタンの見た目を変える
@@ -94,6 +99,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 「投入」ボタンのタグ
     enum putMoneyButtonTag: Int {
         case tenYen = 1
         case fiftyYen = 2
