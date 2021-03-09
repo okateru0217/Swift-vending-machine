@@ -260,7 +260,7 @@
                     <navigationItem key="navigationItem" title="自動販売機" id="Zc3-QF-1Wl">
                         <barButtonItem key="rightBarButtonItem" title="在庫管理" id="btu-S6-r4U">
                             <connections>
-                                <segue destination="QVu-ET-Pq9" kind="presentation" identifier="toInventoryControl" id="6Nc-X0-DTi"/>
+                                <segue destination="QVu-ET-Pq9" kind="show" id="1SU-9O-sgv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -269,7 +269,7 @@
                         <outlet property="habaneroPineappleJuicePurchaseNumberLabel" destination="cpv-UK-iyV" id="9fY-G5-2q8"/>
                         <outlet property="palmFruitCiderPurchaseButton" destination="m1c-Nk-rAx" id="8vS-tO-Rbx"/>
                         <outlet property="palmFruitCiderPurchaseNumberLabel" destination="t06-Oy-h9U" id="SE9-sU-0wF"/>
-                        <outlet property="putMoney" destination="2Up-Ld-dRY" id="gou-xG-Mso"/>
+                        <outlet property="putMoney" destination="2Up-Ld-dRY" id="Itq-jh-Yzr"/>
                         <outlet property="strawberryOdenPurchaseButton" destination="Vly-Tj-gcy" id="Hxb-nQ-c24"/>
                         <outlet property="strawberryOdenPurchaseNumberLabel" destination="e32-rU-yHC" id="XTz-Ia-UIf"/>
                         <outlet property="waterPurchaseButton" destination="aab-fn-Kzy" id="Dqi-Oj-hVE"/>
@@ -285,7 +285,7 @@
             <objects>
                 <viewController id="QVu-ET-Pq9" customClass="StockViewController" customModule="VendingMachineApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J1C-9s-aqQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="W6e-Id-CwY">
@@ -325,7 +325,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-3z-cWY">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxS-3z-cWY">
                                 <rect key="frame" x="30" y="347" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -333,8 +333,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentDrinkButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="2vE-ju-Oyj"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-QI-ywq">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-QI-ywq">
                                 <rect key="frame" x="130" y="347" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -342,8 +345,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentDrinkButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="rMJ-Ht-omq"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3S-2o-Bpz">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3S-2o-Bpz">
                                 <rect key="frame" x="232" y="347" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -351,8 +357,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentDrinkButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="A6h-fJ-Vzs"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-7B-MyK">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-7B-MyK">
                                 <rect key="frame" x="333" y="347" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -360,6 +369,9 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentDrinkButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="kQI-uf-qHm"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10yen" translatesAutoresizingMaskIntoConstraints="NO" id="nua-PE-TP1">
                                 <rect key="frame" x="20" y="534" width="80" height="80"/>
@@ -377,7 +389,7 @@
                                 <rect key="frame" x="214" y="534" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s54-0n-XFM">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s54-0n-XFM">
                                 <rect key="frame" x="34" y="646" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -385,8 +397,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentChangeButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="zcB-Y3-m3a"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig3-hK-vgJ">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig3-hK-vgJ">
                                 <rect key="frame" x="132" y="646" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -394,8 +409,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentChangeButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="gxq-UQ-9gj"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1n-Tv-7b2">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1n-Tv-7b2">
                                 <rect key="frame" x="228" y="646" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -403,8 +421,11 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentChangeButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="CLm-lP-Hzg"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjS-Bq-4cu">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjS-Bq-4cu">
                                 <rect key="frame" x="328" y="646" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -412,6 +433,9 @@
                                 <state key="normal" title="補充">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="replenishmentChangeButton:" destination="QVu-ET-Pq9" eventType="touchUpInside" id="Tbj-ZT-byJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0枚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-cC-j5z">
                                 <rect key="frame" x="35" y="617" width="50" height="21"/>
@@ -466,6 +490,7 @@
                         <viewLayoutGuide key="safeArea" id="RD0-iK-5gz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AxZ-FD-gdL"/>
                     <connections>
                         <outlet property="fiftyYenStockLabel" destination="ykF-vY-Mo6" id="rCh-Pb-zgi"/>
                         <outlet property="fiveHundredYenStockLabel" destination="QUF-Z0-gDZ" id="0ei-Yt-DgD"/>
