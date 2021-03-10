@@ -11,22 +11,23 @@ class ViewController: UIViewController {
     
     // 投入金額ラベル
     @IBOutlet weak var putMoney: UILabel!
+    // 投入金額
+    var addPutMoney: Int = 0
     
     // 購入ボタン
     @IBOutlet weak var waterPurchaseButton: UIButton!
     @IBOutlet weak var strawberryOdenPurchaseButton: UIButton!
     @IBOutlet weak var palmFruitCiderPurchaseButton: UIButton!
     @IBOutlet weak var habaneroPineappleJuicePurchaseButton: UIButton!
+    
     // 購入数ラベル
     @IBOutlet weak var waterPurchaseNumberLabel: UILabel!
     @IBOutlet weak var strawberryOdenPurchaseNumberLabel: UILabel!
     @IBOutlet weak var palmFruitCiderPurchaseNumberLabel: UILabel!
     @IBOutlet weak var habaneroPineappleJuicePurchaseNumberLabel: UILabel!
+    
     // おつりラベル
     @IBOutlet weak var changeLabel: UILabel!
-    
-    // 投入金額
-    var addPutMoney: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
         allPurchaseButtonLit()
     }
     
-    // 購入可否に応じて、「購入」ボタンの見た目を変える
+    // 購入可否に応じて、「購入」ボタンの見た目を変更する
     func purchaseButtonLit(purchaseButton: UIButton, price: Int, stock: Int) {
         if addPutMoney >= price && stock > 0 {
             purchaseButton.backgroundColor = .systemGreen
@@ -62,6 +63,7 @@ class ViewController: UIViewController {
         purchaseButtonLit(purchaseButton: habaneroPineappleJuicePurchaseButton, price: 200, stock: drinkManagement.habaneroPineappleJuiceStock)
     }
     
+    // 「購入」ボタンのタグ
     enum purchaseButtonTag: Int {
         case waterButton = 1
         case strawberryOdenButton = 2
@@ -79,26 +81,24 @@ class ViewController: UIViewController {
         switch tag {
         case .waterButton:
             addPutMoney -= 100
-            putMoney.text = String("\(addPutMoney)円")
             waterPurchaseNumberLabel.text = String("\(drinkManagement.waterNumber)本")
-            allPurchaseButtonLit()
+
         case .strawberryOdenButton:
             addPutMoney -= 120
-            putMoney.text = String("\(addPutMoney)円")
             strawberryOdenPurchaseNumberLabel.text = String("\(drinkManagement.strawberryOdenNumber)本")
-            allPurchaseButtonLit()
+
         case .palmFruitCiderButton:
             addPutMoney -= 140
-            putMoney.text = String("\(addPutMoney)円")
             palmFruitCiderPurchaseNumberLabel.text = String("\(drinkManagement.palmFruitCiderNumber)本")
-            allPurchaseButtonLit()
+            
         case .habaneroPineappleJuiceButton:
             addPutMoney -= 200
-            putMoney.text = String("\(addPutMoney)円")
             habaneroPineappleJuicePurchaseNumberLabel.text = String("\(drinkManagement.habaneroPineappleJuiceNumber)本")
-            allPurchaseButtonLit()
+            
         default: break
         }
+        putMoney.text = String("\(addPutMoney)円")
+        allPurchaseButtonLit()
     }
     
     // 「投入」ボタンのタグ
@@ -115,22 +115,19 @@ class ViewController: UIViewController {
         switch tag {
         case .tenYen:
             addPutMoney += 10
-            putMoney.text = String("\(addPutMoney)円")
             
         case .fiftyYen:
             addPutMoney += 50
-            putMoney.text = String("\(addPutMoney)円")
             
         case .oneHundredYen:
             addPutMoney += 100
-            putMoney.text = String("\(addPutMoney)円")
             
         case .fiveHundredYen:
             addPutMoney += 500
-            putMoney.text = String("\(addPutMoney)円")
             
         default: break
         }
+        putMoney.text = String("\(addPutMoney)円")
         allPurchaseButtonLit()
         // 釣り銭残高を増やす
         changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
