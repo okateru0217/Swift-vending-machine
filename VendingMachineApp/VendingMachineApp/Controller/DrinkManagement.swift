@@ -32,7 +32,7 @@ class DrinkManagement: ViewController {
     var strawberryOdenStock = 15
     var palmFruitCiderStock = 3
     var habaneroPineappleJuiceStock = 5
-    // ドリンク在庫数を減らす
+    // 購入時、ドリンク在庫数を減らす
     func decreaseDrinkStock(decreaseDrink: purchaseButtonTag) {
         switch decreaseDrink {
         case .waterButton:

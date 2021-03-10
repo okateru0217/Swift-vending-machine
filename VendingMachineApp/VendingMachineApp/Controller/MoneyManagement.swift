@@ -28,11 +28,11 @@ class ChangeManagement: ViewController {
         }
     }
     
+    // おつりを出すための変数
     var putOutTotalPutMoney = 0
     // おつり分の釣り銭残高を減らす関数
     func putOutChange(totalAddPutMoney: Int) {
         putOutTotalPutMoney = totalAddPutMoney
-        print(putOutTotalPutMoney)
         while putOutTotalPutMoney >= 0 {
             if putOutTotalPutMoney >= 500 {
                 putOutTotalPutMoney -= 500
