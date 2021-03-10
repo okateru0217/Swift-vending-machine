@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var strawberryOdenPurchaseNumberLabel: UILabel!
     @IBOutlet weak var palmFruitCiderPurchaseNumberLabel: UILabel!
     @IBOutlet weak var habaneroPineappleJuicePurchaseNumberLabel: UILabel!
+    // おつりラベル
+    @IBOutlet weak var changeLabel: UILabel!
     
     // 投入金額
     var addPutMoney: Int = 0
@@ -132,5 +134,14 @@ class ViewController: UIViewController {
         allPurchaseButtonLit()
         // 釣り銭残高を増やす
         changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+    }
+    
+    // 「おつり」ボタン押下時の処理
+    @IBAction func changeButton(_ sender: Any) {
+        changeLabel.text = String("\(addPutMoney)円")
+        changeManagement.putOutChange(totalAddPutMoney: addPutMoney)
+        addPutMoney = 0
+        allPurchaseButtonLit()
+        putMoney.text = String("\(changeManagement.putOutTotalPutMoney)円")
     }
 }
