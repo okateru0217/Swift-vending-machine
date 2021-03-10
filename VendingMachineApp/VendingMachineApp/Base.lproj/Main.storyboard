@@ -226,8 +226,11 @@
                                 <state key="normal" title="おつりボタン">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3k-nx-BfP"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICf-g6-oTO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICf-g6-oTO">
                                 <rect key="frame" x="266" y="406" width="90" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -265,6 +268,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeLabel" destination="ICf-g6-oTO" id="io2-tY-GrD"/>
                         <outlet property="habaneroPineappleJuicePurchaseButton" destination="hBM-f8-2yJ" id="sEq-uv-ini"/>
                         <outlet property="habaneroPineappleJuicePurchaseNumberLabel" destination="cpv-UK-iyV" id="9fY-G5-2q8"/>
                         <outlet property="palmFruitCiderPurchaseButton" destination="m1c-Nk-rAx" id="8vS-tO-Rbx"/>
