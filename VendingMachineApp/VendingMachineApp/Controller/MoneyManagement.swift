@@ -8,11 +8,31 @@
 import Foundation
 
 class ChangeManagement: ViewController {
+    // 初期所持金
+    var tenYenPossession = 25
+    var fiftyYenPossession = 10
+    var oneHundredYenPossession = 20
+    var fiveHundredYenPossession = 5
+    
     // 釣り銭初期残高
     var tenYenStock = 50
     var fiftyYenStock = 20
     var oneHundredYenStock = 100
     var fiveHundredYenStock = 10
+    
+    // 購入時、所持金を減らす関数
+    func reducePosessionMoney(putMoneyTag: putMoneyButtonTag) {
+        switch putMoneyTag {
+        case .tenYen:
+            tenYenPossession -= 1
+        case .fiftyYen:
+            fiftyYenPossession -= 1
+        case .oneHundredYen:
+            oneHundredYenPossession -= 1
+        case .fiveHundredYen:
+            fiveHundredYenPossession -= 1
+        }
+    }
     
     // 釣り銭を補充する関数
     func increaseChange(increaseMoney: putMoneyButtonTag) {
@@ -37,21 +57,25 @@ class ChangeManagement: ViewController {
             if putOutTotalPutMoney >= 500 {
                 putOutTotalPutMoney -= 500
                 fiveHundredYenStock -= 1
+                fiveHundredYenPossession += 1
                 continue
             }
             if putOutTotalPutMoney >= 100 {
                 putOutTotalPutMoney -= 100
                 oneHundredYenStock -= 1
+                oneHundredYenPossession += 1
                 continue
             }
             if putOutTotalPutMoney >= 50 {
                 putOutTotalPutMoney -= 50
                 fiftyYenStock -= 1
+                fiftyYenPossession += 1
                 continue
             }
             if putOutTotalPutMoney >= 10 {
                 putOutTotalPutMoney -= 10
                 tenYenStock -= 1
+                tenYenPossession += 1
                 continue
             }
             if putOutTotalPutMoney < 10 {

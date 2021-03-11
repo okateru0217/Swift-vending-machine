@@ -14,6 +14,17 @@ class ViewController: UIViewController {
     // 投入金額
     var addPutMoney: Int = 0
     
+    // 所持金ラベル
+    @IBOutlet weak var tenYenPossessionLabel: UILabel!
+    @IBOutlet weak var fiftyYenPossessionLabel: UILabel!
+    @IBOutlet weak var oneHundredYenPossessionLabel: UILabel!
+    @IBOutlet weak var fiveHundredYenPossessionLabel: UILabel!
+    // 投入ボタン
+    @IBOutlet weak var tenYenPossessionButton: UIButton!
+    @IBOutlet weak var fiftyYenPossessionButton: UIButton!
+    @IBOutlet weak var oneHundredYenPossessionButton: UIButton!
+    @IBOutlet weak var fiveHundredYenPossessionButton: UIButton!
+    
     // 購入ボタン
     @IBOutlet weak var waterPurchaseButton: UIButton!
     @IBOutlet weak var strawberryOdenPurchaseButton: UIButton!
@@ -31,6 +42,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
+        fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
+        oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
+        fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
         // Do any additional setup after loading the view.
     }
     
@@ -101,6 +116,24 @@ class ViewController: UIViewController {
         allPurchaseButtonLit()
     }
     
+    // 投入可否に応じて、ボタンの見た目を変更する
+    func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int) {
+        if possesionMoney == 0 {
+            possessionButton.backgroundColor = .lightGray
+            possessionButton.isEnabled = false
+        } else {
+            possessionButton.backgroundColor = .systemTeal
+            possessionButton.isEnabled = true
+        }
+    }
+    // possessionMoneyLitを一括実行するための関数
+    func allPossessionMoneyLit() {
+        possessionMoneyLit(possessionButton: tenYenPossessionButton, possesionMoney: changeManagement.tenYenPossession)
+        possessionMoneyLit(possessionButton: fiftyYenPossessionButton, possesionMoney: changeManagement.fiftyYenPossession)
+        possessionMoneyLit(possessionButton: oneHundredYenPossessionButton, possesionMoney: changeManagement.oneHundredYenPossession)
+        possessionMoneyLit(possessionButton: fiveHundredYenPossessionButton, possesionMoney: changeManagement.fiveHundredYenPossession)
+    }
+    
     // 「投入」ボタンのタグ
     enum putMoneyButtonTag: Int {
         case tenYen = 1
@@ -112,18 +145,23 @@ class ViewController: UIViewController {
     @IBAction func putMoneyButton(_ sender: Any) {
         let buttonTag: UIButton = sender as! UIButton
         let tag = putMoneyButtonTag(rawValue: buttonTag.tag)
+        changeManagement.reducePosessionMoney(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
         switch tag {
         case .tenYen:
             addPutMoney += 10
+            tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
             
         case .fiftyYen:
             addPutMoney += 50
+            fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
             
         case .oneHundredYen:
             addPutMoney += 100
+            oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
             
         case .fiveHundredYen:
             addPutMoney += 500
+            fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
             
         default: break
         }
@@ -131,14 +169,25 @@ class ViewController: UIViewController {
         allPurchaseButtonLit()
         // 釣り銭残高を増やす
         changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+        // 所持金が0円かどうかを判断する
+        allPossessionMoneyLit()
     }
     
     // 「おつり」ボタン押下時の処理
     @IBAction func changeButton(_ sender: Any) {
+        // おつりラベルに、投入金額と同じ額を反映させる
         changeLabel.text = String("\(addPutMoney)円")
         changeManagement.putOutChange(totalAddPutMoney: addPutMoney)
+        // 投入金額を0円にする
         addPutMoney = 0
         allPurchaseButtonLit()
+        // おつりによって0円となった結果を、投入金額へ反映
         putMoney.text = String("\(changeManagement.putOutTotalPutMoney)円")
+        allPossessionMoneyLit()
+        // おつりによって増えた所持金を画面へ反映させる
+        tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
+        fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
+        oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
+        fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
     }
 }
