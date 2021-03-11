@@ -97,19 +97,19 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="10yen" translatesAutoresizingMaskIntoConstraints="NO" id="iKl-vL-jJ7">
-                                <rect key="frame" x="20" y="551" width="80" height="80"/>
+                                <rect key="frame" x="20" y="535" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="50yen" translatesAutoresizingMaskIntoConstraints="NO" id="YIl-xM-q27">
-                                <rect key="frame" x="118" y="551" width="80" height="80"/>
+                                <rect key="frame" x="118" y="535" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="500yen" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-L1-meJ">
-                                <rect key="frame" x="314" y="551" width="80" height="80"/>
+                                <rect key="frame" x="314" y="535" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="100yen" translatesAutoresizingMaskIntoConstraints="NO" id="BxQ-Si-5u7">
-                                <rect key="frame" x="214" y="551" width="80" height="80"/>
+                                <rect key="frame" x="214" y="535" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="投入金額" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIV-P4-l3G">
@@ -256,6 +256,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0枚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-kF-EeX">
+                                <rect key="frame" x="35" y="617" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0枚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJp-ee-DOu">
+                                <rect key="frame" x="132" y="617" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0枚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVo-pA-L1f">
+                                <rect key="frame" x="231" y="617" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0枚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rza-7q-hV1">
+                                <rect key="frame" x="329" y="617" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="所持金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcz-PF-JOl">
+                                <rect key="frame" x="181" y="490" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -269,13 +304,21 @@
                     </navigationItem>
                     <connections>
                         <outlet property="changeLabel" destination="ICf-g6-oTO" id="io2-tY-GrD"/>
+                        <outlet property="fiftyYenPossessionButton" destination="bCw-GV-1jF" id="06f-6l-zgG"/>
+                        <outlet property="fiftyYenPossessionLabel" destination="FJp-ee-DOu" id="s9w-Qr-PrZ"/>
+                        <outlet property="fiveHundredYenPossessionButton" destination="lak-CB-xD7" id="Oa2-hN-8js"/>
+                        <outlet property="fiveHundredYenPossessionLabel" destination="rza-7q-hV1" id="Y0d-YB-TkO"/>
                         <outlet property="habaneroPineappleJuicePurchaseButton" destination="hBM-f8-2yJ" id="sEq-uv-ini"/>
                         <outlet property="habaneroPineappleJuicePurchaseNumberLabel" destination="cpv-UK-iyV" id="9fY-G5-2q8"/>
+                        <outlet property="oneHundredYenPossessionButton" destination="VO4-im-2ju" id="Ghl-L4-tzf"/>
+                        <outlet property="oneHundredYenPossessionLabel" destination="SVo-pA-L1f" id="znX-5V-NdU"/>
                         <outlet property="palmFruitCiderPurchaseButton" destination="m1c-Nk-rAx" id="8vS-tO-Rbx"/>
                         <outlet property="palmFruitCiderPurchaseNumberLabel" destination="t06-Oy-h9U" id="SE9-sU-0wF"/>
                         <outlet property="putMoney" destination="2Up-Ld-dRY" id="Itq-jh-Yzr"/>
                         <outlet property="strawberryOdenPurchaseButton" destination="Vly-Tj-gcy" id="Hxb-nQ-c24"/>
                         <outlet property="strawberryOdenPurchaseNumberLabel" destination="e32-rU-yHC" id="XTz-Ia-UIf"/>
+                        <outlet property="tenYenPossessionButton" destination="mBQ-JD-HOA" id="04p-Sb-5KD"/>
+                        <outlet property="tenYenPossessionLabel" destination="AbO-kF-EeX" id="TEU-kc-pP9"/>
                         <outlet property="waterPurchaseButton" destination="aab-fn-Kzy" id="Dqi-Oj-hVE"/>
                         <outlet property="waterPurchaseNumberLabel" destination="ghq-bj-QsQ" id="BWU-Tk-lv1"/>
                     </connections>
