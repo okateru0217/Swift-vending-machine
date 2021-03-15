@@ -20,6 +20,12 @@ final class ChangeManagement: ViewController {
     var oneHundredYenStock = 100
     var fiveHundredYenStock = 10
     
+    // 投入硬貨枚数を数える
+    var tenYenPutSheets = 0
+    var fiftyYenPutSheets = 0
+    var oneHundredYenPutSheets = 0
+    var fiveHundredYenPutSheets = 0
+    
     // 購入時、所持金を減らす関数
     func reducePosessionMoney(putMoneyTag: putMoneyButtonTag) {
         switch putMoneyTag {
@@ -46,6 +52,28 @@ final class ChangeManagement: ViewController {
         case .fiveHundredYen:
             fiveHundredYenStock += 1
         }
+    }
+    
+    // 投入硬貨枚数を数える関数
+    func putMoneySheetsLimit(putMoneyTag: putMoneyButtonTag) {
+        switch putMoneyTag {
+        case .tenYen:
+            tenYenPutSheets += 1
+        case .fiftyYen:
+            fiftyYenPutSheets += 1
+        case .oneHundredYen:
+            oneHundredYenPutSheets += 1
+        case .fiveHundredYen:
+            fiveHundredYenPutSheets += 1
+        }
+    }
+    
+    // おつりボタン押下時、投入硬貨枚数をリセットする関数
+    func resetPutMoneySheetsLimit() {
+        tenYenPutSheets = 0
+        fiftyYenPutSheets = 0
+        oneHundredYenPutSheets = 0
+        fiveHundredYenPutSheets = 0
     }
     
     // おつりを出すための変数

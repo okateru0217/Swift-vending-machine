@@ -119,8 +119,8 @@ class ViewController: UIViewController {
     }
     
     // 投入可否に応じて、ボタンの見た目を変更する
-    func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int) {
-        if possesionMoney == 0 {
+    func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int, sheetsPutMoney: Int) {
+        if possesionMoney == 0 || sheetsPutMoney >= 20 {
             possessionButton.backgroundColor = .lightGray
             possessionButton.isEnabled = false
         } else {
@@ -130,10 +130,10 @@ class ViewController: UIViewController {
     }
     // possessionMoneyLitを一括実行するための関数
     func allPossessionMoneyLit() {
-        possessionMoneyLit(possessionButton: tenYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.tenYenPossession)
-        possessionMoneyLit(possessionButton: fiftyYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiftyYenPossession)
-        possessionMoneyLit(possessionButton: oneHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.oneHundredYenPossession)
-        possessionMoneyLit(possessionButton: fiveHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiveHundredYenPossession)
+        possessionMoneyLit(possessionButton: tenYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.tenYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.tenYenPutSheets)
+        possessionMoneyLit(possessionButton: fiftyYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiftyYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.fiftyYenPutSheets)
+        possessionMoneyLit(possessionButton: oneHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.oneHundredYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.oneHundredYenPutSheets)
+        possessionMoneyLit(possessionButton: fiveHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiveHundredYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.fiveHundredYenPutSheets)
     }
     
     // 「投入」ボタンのタグ
@@ -147,7 +147,10 @@ class ViewController: UIViewController {
     @IBAction func putMoneyButton(_ sender: Any) {
         let buttonTag: UIButton = sender as! UIButton
         let tag = putMoneyButtonTag(rawValue: buttonTag.tag)
+        // 購入時、所持金を減らす
         ChangeManagement.changeManagement.reducePosessionMoney(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+        // 投入硬貨枚数を数える
+        ChangeManagement.changeManagement.putMoneySheetsLimit(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
         switch tag {
         case .tenYen:
             addPutMoney += 10
@@ -185,6 +188,7 @@ class ViewController: UIViewController {
         allPurchaseButtonLit()
         // おつりによって0円となった結果を、投入金額へ反映
         putMoney.text = String("\(ChangeManagement.changeManagement.putOutTotalPutMoney)円")
+        ChangeManagement.changeManagement.resetPutMoneySheetsLimit()
         allPossessionMoneyLit()
         // おつりによって増えた所持金を画面へ反映させる
         tenYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.tenYenPossession)枚")
