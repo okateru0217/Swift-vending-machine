@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChangeManagement: ViewController {
+final class ChangeManagement: ViewController {
     // 初期所持金
     var tenYenPossession = 25
     var fiftyYenPossession = 10
@@ -84,6 +84,5 @@ class ChangeManagement: ViewController {
             }
         }
     }
+    public static let changeManagement = ChangeManagement()
 }
-
-let changeManagement = ChangeManagement()
