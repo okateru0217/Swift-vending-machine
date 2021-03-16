@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var putMoney: UILabel!
     // 投入金額
     var addPutMoney: Int = 0
+    // 釣り銭不足ラベル
+    @IBOutlet weak var changeLackLabel: UILabel!
     
     // 所持金ラベル
     @IBOutlet weak var tenYenPossessionLabel: UILabel!
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         allPurchaseButtonLit()
+        allPossessionMoneyLit()
     }
     
     // 購入可否に応じて、「購入」ボタンの見た目を変更する
@@ -62,14 +65,25 @@ class ViewController: UIViewController {
             purchaseButton.backgroundColor = .systemGreen
             purchaseButton.setTitle("購入", for: .normal)
             purchaseButton.isEnabled = true
+            changeLackLabel.isHidden = true
         } else if addPutMoney < price && stock > 0 {
             purchaseButton.backgroundColor = .lightGray
             purchaseButton.setTitle("購入", for: .normal)
             purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = true
         } else {
             purchaseButton.backgroundColor = .systemRed
             purchaseButton.setTitle("売切", for: .normal)
             purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = true
+        }
+        
+        // 自動販売機側のお釣りが少ない時に、購入できないようにする
+        if ChangeManagement.changeManagement.tenYenStock <= 8 || ChangeManagement.changeManagement.oneHundredYenStock <= 3 {
+            purchaseButton.backgroundColor = .lightGray
+            purchaseButton.setTitle("購入", for: .normal)
+            purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = false
         }
     }
     // purchaseButtonLit関数を一括で適応させるための関数
@@ -126,6 +140,11 @@ class ViewController: UIViewController {
         } else {
             possessionButton.backgroundColor = .systemTeal
             possessionButton.isEnabled = true
+        }
+        
+        if ChangeManagement.changeManagement.tenYenStock <= 8 || ChangeManagement.changeManagement.oneHundredYenStock <= 3 {
+            possessionButton.backgroundColor = .lightGray
+            possessionButton.isEnabled = false
         }
     }
     // possessionMoneyLitを一括実行するための関数
