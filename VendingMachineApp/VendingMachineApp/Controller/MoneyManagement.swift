@@ -17,7 +17,7 @@ final class ChangeManagement: ViewController {
     // 釣り銭初期残高
     var tenYenStock = 50
     var fiftyYenStock = 20
-    var oneHundredYenStock = 3
+    var oneHundredYenStock = 100
     var fiveHundredYenStock = 10
     
     // 投入硬貨枚数を数える
@@ -112,5 +112,5 @@ final class ChangeManagement: ViewController {
             }
         }
     }
-    public static let changeManagement = ChangeManagement()
+    static let changeManagement = ChangeManagement()
 }

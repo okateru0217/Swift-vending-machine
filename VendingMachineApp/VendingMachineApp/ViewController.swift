@@ -134,6 +134,9 @@ class ViewController: UIViewController {
     
     // 投入可否に応じて、ボタンの見た目を変更する
     func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int, sheetsPutMoney: Int) {
+        let lackTenYenStock = 8
+        let lackOneHundredYenStock = 3
+        
         if possesionMoney == 0 || sheetsPutMoney >= 20 {
             possessionButton.backgroundColor = .lightGray
             possessionButton.isEnabled = false
@@ -142,7 +145,7 @@ class ViewController: UIViewController {
             possessionButton.isEnabled = true
         }
         
-        if ChangeManagement.changeManagement.tenYenStock <= 8 || ChangeManagement.changeManagement.oneHundredYenStock <= 3 {
+        if ChangeManagement.changeManagement.tenYenStock <= lackTenYenStock || ChangeManagement.changeManagement.oneHundredYenStock <= lackOneHundredYenStock {
             possessionButton.backgroundColor = .lightGray
             possessionButton.isEnabled = false
         }

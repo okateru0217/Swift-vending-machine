@@ -45,5 +45,5 @@ final class DrinkManagement: ViewController {
             habaneroPineappleJuiceStock -= 1
         }
     }
-    public static let drinkManagement = DrinkManagement()
+    static let drinkManagement = DrinkManagement()
 }
