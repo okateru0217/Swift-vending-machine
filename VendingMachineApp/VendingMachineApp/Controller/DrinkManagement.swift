@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DrinkManagement: ViewController {
+final class DrinkManagement: ViewController {
     // 購入ドリンク数
     var waterNumber = 0
     var strawberryOdenNumber = 0
@@ -45,6 +45,5 @@ class DrinkManagement: ViewController {
             habaneroPineappleJuiceStock -= 1
         }
     }
+    static let drinkManagement = DrinkManagement()
 }
-
-let drinkManagement = DrinkManagement()

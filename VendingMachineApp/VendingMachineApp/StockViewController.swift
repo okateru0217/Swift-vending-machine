@@ -25,16 +25,16 @@ class StockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // ドリンク在庫数ラベル
-        waterStockLabel.text = String("\(drinkManagement.waterStock)本")
-        strawberryOdenStockLabel.text = String("\(drinkManagement.strawberryOdenStock)本")
-        palmFruitCiderStockLabel.text = String("\(drinkManagement.palmFruitCiderStock)本")
-        habaneroPineappleJuiceStockLabel.text = String("\(drinkManagement.habaneroPineappleJuiceStock)本")
+        waterStockLabel.text = String("\(DrinkManagement.drinkManagement.waterStock)本")
+        strawberryOdenStockLabel.text = String("\(DrinkManagement.drinkManagement.strawberryOdenStock)本")
+        palmFruitCiderStockLabel.text = String("\(DrinkManagement.drinkManagement.palmFruitCiderStock)本")
+        habaneroPineappleJuiceStockLabel.text = String("\(DrinkManagement.drinkManagement.habaneroPineappleJuiceStock)本")
         
         // 釣り銭残高ラベル
-        tenYenStockLabel.text = String("\(changeManagement.tenYenStock)枚")
-        fiftyYenStockLabel.text = String("\(changeManagement.fiftyYenStock)枚")
-        oneHundredYenStockLabel.text = String("\(changeManagement.oneHundredYenStock)枚")
-        fiveHundredYenStockLabel.text = String("\(changeManagement.fiveHundredYenStock)枚")
+        tenYenStockLabel.text = String("\(ChangeManagement.changeManagement.tenYenStock)枚")
+        fiftyYenStockLabel.text = String("\(ChangeManagement.changeManagement.fiftyYenStock)枚")
+        oneHundredYenStockLabel.text = String("\(ChangeManagement.changeManagement.oneHundredYenStock)枚")
+        fiveHundredYenStockLabel.text = String("\(ChangeManagement.changeManagement.fiveHundredYenStock)枚")
         // Do any additional setup after loading the view.
     }
     
@@ -51,17 +51,17 @@ class StockViewController: UIViewController {
         let tag = replenishmentDrinkButtonTag(rawValue: buttonTag.tag)
         switch tag {
         case .replenishmentWaterButton:
-            drinkManagement.waterStock += 1
-            waterStockLabel.text = String("\(drinkManagement.waterStock)本")
+            DrinkManagement.drinkManagement.waterStock += 1
+            waterStockLabel.text = String("\(DrinkManagement.drinkManagement.waterStock)本")
         case .replenishmentStrawberryOdenButton:
-            drinkManagement.strawberryOdenStock += 1
-            strawberryOdenStockLabel.text = String("\(drinkManagement.strawberryOdenStock)本")
+            DrinkManagement.drinkManagement.strawberryOdenStock += 1
+            strawberryOdenStockLabel.text = String("\(DrinkManagement.drinkManagement.strawberryOdenStock)本")
         case .replenishmentPalmFruitCiderButton:
-            drinkManagement.palmFruitCiderStock += 1
-            palmFruitCiderStockLabel.text = String("\(drinkManagement.palmFruitCiderStock)本")
+            DrinkManagement.drinkManagement.palmFruitCiderStock += 1
+            palmFruitCiderStockLabel.text = String("\(DrinkManagement.drinkManagement.palmFruitCiderStock)本")
         case .replenishmenthabaneroPineappleJuiceButton:
-            drinkManagement.habaneroPineappleJuiceStock += 1
-            habaneroPineappleJuiceStockLabel.text = String("\(drinkManagement.habaneroPineappleJuiceStock)本")
+            DrinkManagement.drinkManagement.habaneroPineappleJuiceStock += 1
+            habaneroPineappleJuiceStockLabel.text = String("\(DrinkManagement.drinkManagement.habaneroPineappleJuiceStock)本")
         default:break
         }
     }
@@ -79,17 +79,17 @@ class StockViewController: UIViewController {
         let tag = replenishmentChangeButtonTag(rawValue: buttonTag.tag)
         switch tag {
         case .replenishmentTenYenButton:
-            changeManagement.tenYenStock += 1
-            tenYenStockLabel.text = String("\(changeManagement.tenYenStock)枚")
+            ChangeManagement.changeManagement.tenYenStock += 1
+            tenYenStockLabel.text = String("\(ChangeManagement.changeManagement.tenYenStock)枚")
         case .replenishmentFiftyYenButton:
-            changeManagement.fiftyYenStock += 1
-            fiftyYenStockLabel.text = String("\(changeManagement.fiftyYenStock)枚")
+            ChangeManagement.changeManagement.fiftyYenStock += 1
+            fiftyYenStockLabel.text = String("\(ChangeManagement.changeManagement.fiftyYenStock)枚")
         case .replenishmentOneHundredButton:
-            changeManagement.oneHundredYenStock += 1
-            oneHundredYenStockLabel.text = String("\(changeManagement.oneHundredYenStock)枚")
+            ChangeManagement.changeManagement.oneHundredYenStock += 1
+            oneHundredYenStockLabel.text = String("\(ChangeManagement.changeManagement.oneHundredYenStock)枚")
         case .replenishmentFiveHundredButton:
-            changeManagement.fiveHundredYenStock += 1
-            fiveHundredYenStockLabel.text = String("\(changeManagement.fiveHundredYenStock)枚")
+            ChangeManagement.changeManagement.fiveHundredYenStock += 1
+            fiveHundredYenStockLabel.text = String("\(ChangeManagement.changeManagement.fiveHundredYenStock)枚")
         default:break
         }
     }

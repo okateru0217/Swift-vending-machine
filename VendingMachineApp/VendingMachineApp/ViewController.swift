@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var putMoney: UILabel!
     // 投入金額
     var addPutMoney: Int = 0
+    // 釣り銭不足ラベル
+    @IBOutlet weak var changeLackLabel: UILabel!
     
     // 所持金ラベル
     @IBOutlet weak var tenYenPossessionLabel: UILabel!
@@ -42,16 +44,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
-        fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
-        oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
-        fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
+        tenYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.tenYenPossession)枚")
+        fiftyYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiftyYenPossession)枚")
+        oneHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.oneHundredYenPossession)枚")
+        fiveHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiveHundredYenPossession)枚")
+        
+        print(DrinkManagement.drinkManagement.waterStock)
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         allPurchaseButtonLit()
+        allPossessionMoneyLit()
     }
     
     // 購入可否に応じて、「購入」ボタンの見た目を変更する
@@ -60,22 +65,33 @@ class ViewController: UIViewController {
             purchaseButton.backgroundColor = .systemGreen
             purchaseButton.setTitle("購入", for: .normal)
             purchaseButton.isEnabled = true
+            changeLackLabel.isHidden = true
         } else if addPutMoney < price && stock > 0 {
             purchaseButton.backgroundColor = .lightGray
             purchaseButton.setTitle("購入", for: .normal)
             purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = true
         } else {
             purchaseButton.backgroundColor = .systemRed
             purchaseButton.setTitle("売切", for: .normal)
             purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = true
+        }
+        
+        // 自動販売機側のお釣りが少ない時に、購入できないようにする
+        if ChangeManagement.changeManagement.tenYenStock <= 8 || ChangeManagement.changeManagement.oneHundredYenStock <= 3 {
+            purchaseButton.backgroundColor = .lightGray
+            purchaseButton.setTitle("購入", for: .normal)
+            purchaseButton.isEnabled = false
+            changeLackLabel.isHidden = false
         }
     }
     // purchaseButtonLit関数を一括で適応させるための関数
     func allPurchaseButtonLit() {
-        purchaseButtonLit(purchaseButton: waterPurchaseButton, price: 100, stock: drinkManagement.waterStock)
-        purchaseButtonLit(purchaseButton: strawberryOdenPurchaseButton, price: 120, stock: drinkManagement.strawberryOdenStock)
-        purchaseButtonLit(purchaseButton: palmFruitCiderPurchaseButton, price: 140, stock: drinkManagement.palmFruitCiderStock)
-        purchaseButtonLit(purchaseButton: habaneroPineappleJuicePurchaseButton, price: 200, stock: drinkManagement.habaneroPineappleJuiceStock)
+        purchaseButtonLit(purchaseButton: waterPurchaseButton, price: 100, stock: DrinkManagement.drinkManagement.waterStock)
+        purchaseButtonLit(purchaseButton: strawberryOdenPurchaseButton, price: 120, stock: DrinkManagement.drinkManagement.strawberryOdenStock)
+        purchaseButtonLit(purchaseButton: palmFruitCiderPurchaseButton, price: 140, stock: DrinkManagement.drinkManagement.palmFruitCiderStock)
+        purchaseButtonLit(purchaseButton: habaneroPineappleJuicePurchaseButton, price: 200, stock: DrinkManagement.drinkManagement.habaneroPineappleJuiceStock)
     }
     
     // 「購入」ボタンのタグ
@@ -90,25 +106,25 @@ class ViewController: UIViewController {
         let buttonTag: UIButton = sender as! UIButton
         let tag = purchaseButtonTag(rawValue: buttonTag.tag)
         // ドリンク購入数を増やす
-        drinkManagement.increasePossessionDrink(increaseDrink: ViewController.purchaseButtonTag(rawValue: buttonTag.tag)!)
+        DrinkManagement.drinkManagement.increasePossessionDrink(increaseDrink: ViewController.purchaseButtonTag(rawValue: buttonTag.tag)!)
         // ドリンク在庫数を減らす
-        drinkManagement.decreaseDrinkStock(decreaseDrink: ViewController.purchaseButtonTag(rawValue: buttonTag.tag)!)
+        DrinkManagement.drinkManagement.decreaseDrinkStock(decreaseDrink: ViewController.purchaseButtonTag(rawValue: buttonTag.tag)!)
         switch tag {
         case .waterButton:
             addPutMoney -= 100
-            waterPurchaseNumberLabel.text = String("\(drinkManagement.waterNumber)本")
+            waterPurchaseNumberLabel.text = String("\(DrinkManagement.drinkManagement.waterNumber)本")
 
         case .strawberryOdenButton:
             addPutMoney -= 120
-            strawberryOdenPurchaseNumberLabel.text = String("\(drinkManagement.strawberryOdenNumber)本")
+            strawberryOdenPurchaseNumberLabel.text = String("\(DrinkManagement.drinkManagement.strawberryOdenNumber)本")
 
         case .palmFruitCiderButton:
             addPutMoney -= 140
-            palmFruitCiderPurchaseNumberLabel.text = String("\(drinkManagement.palmFruitCiderNumber)本")
+            palmFruitCiderPurchaseNumberLabel.text = String("\(DrinkManagement.drinkManagement.palmFruitCiderNumber)本")
             
         case .habaneroPineappleJuiceButton:
             addPutMoney -= 200
-            habaneroPineappleJuicePurchaseNumberLabel.text = String("\(drinkManagement.habaneroPineappleJuiceNumber)本")
+            habaneroPineappleJuicePurchaseNumberLabel.text = String("\(DrinkManagement.drinkManagement.habaneroPineappleJuiceNumber)本")
             
         default: break
         }
@@ -117,21 +133,30 @@ class ViewController: UIViewController {
     }
     
     // 投入可否に応じて、ボタンの見た目を変更する
-    func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int) {
-        if possesionMoney == 0 {
+    func possessionMoneyLit(possessionButton: UIButton, possesionMoney: Int, sheetsPutMoney: Int) {
+        let limitPutMoney = 20
+        let lackTenYenStock = 8
+        let lackOneHundredYenStock = 3
+        
+        if possesionMoney == 0 || sheetsPutMoney >= limitPutMoney {
             possessionButton.backgroundColor = .lightGray
             possessionButton.isEnabled = false
         } else {
             possessionButton.backgroundColor = .systemTeal
             possessionButton.isEnabled = true
         }
+        
+        if ChangeManagement.changeManagement.tenYenStock <= lackTenYenStock || ChangeManagement.changeManagement.oneHundredYenStock <= lackOneHundredYenStock {
+            possessionButton.backgroundColor = .lightGray
+            possessionButton.isEnabled = false
+        }
     }
     // possessionMoneyLitを一括実行するための関数
     func allPossessionMoneyLit() {
-        possessionMoneyLit(possessionButton: tenYenPossessionButton, possesionMoney: changeManagement.tenYenPossession)
-        possessionMoneyLit(possessionButton: fiftyYenPossessionButton, possesionMoney: changeManagement.fiftyYenPossession)
-        possessionMoneyLit(possessionButton: oneHundredYenPossessionButton, possesionMoney: changeManagement.oneHundredYenPossession)
-        possessionMoneyLit(possessionButton: fiveHundredYenPossessionButton, possesionMoney: changeManagement.fiveHundredYenPossession)
+        possessionMoneyLit(possessionButton: tenYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.tenYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.tenYenPutSheets)
+        possessionMoneyLit(possessionButton: fiftyYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiftyYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.fiftyYenPutSheets)
+        possessionMoneyLit(possessionButton: oneHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.oneHundredYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.oneHundredYenPutSheets)
+        possessionMoneyLit(possessionButton: fiveHundredYenPossessionButton, possesionMoney: ChangeManagement.changeManagement.fiveHundredYenPossession, sheetsPutMoney: ChangeManagement.changeManagement.fiveHundredYenPutSheets)
     }
     
     // 「投入」ボタンのタグ
@@ -145,30 +170,33 @@ class ViewController: UIViewController {
     @IBAction func putMoneyButton(_ sender: Any) {
         let buttonTag: UIButton = sender as! UIButton
         let tag = putMoneyButtonTag(rawValue: buttonTag.tag)
-        changeManagement.reducePosessionMoney(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+        // 購入時、所持金を減らす
+        ChangeManagement.changeManagement.reducePosessionMoney(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+        // 投入硬貨枚数を数える
+        ChangeManagement.changeManagement.putMoneySheetsLimit(putMoneyTag: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
         switch tag {
         case .tenYen:
             addPutMoney += 10
-            tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
+            tenYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.tenYenPossession)枚")
             
         case .fiftyYen:
             addPutMoney += 50
-            fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
+            fiftyYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiftyYenPossession)枚")
             
         case .oneHundredYen:
             addPutMoney += 100
-            oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
+            oneHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.oneHundredYenPossession)枚")
             
         case .fiveHundredYen:
             addPutMoney += 500
-            fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
+            fiveHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiveHundredYenPossession)枚")
             
         default: break
         }
         putMoney.text = String("\(addPutMoney)円")
         allPurchaseButtonLit()
         // 釣り銭残高を増やす
-        changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
+        ChangeManagement.changeManagement.increaseChange(increaseMoney: ViewController.putMoneyButtonTag(rawValue: buttonTag.tag)!)
         // 所持金が0円かどうかを判断する
         allPossessionMoneyLit()
     }
@@ -177,17 +205,18 @@ class ViewController: UIViewController {
     @IBAction func changeButton(_ sender: Any) {
         // おつりラベルに、投入金額と同じ額を反映させる
         changeLabel.text = String("\(addPutMoney)円")
-        changeManagement.putOutChange(totalAddPutMoney: addPutMoney)
+        ChangeManagement.changeManagement.putOutChange(totalAddPutMoney: addPutMoney)
         // 投入金額を0円にする
         addPutMoney = 0
         allPurchaseButtonLit()
         // おつりによって0円となった結果を、投入金額へ反映
-        putMoney.text = String("\(changeManagement.putOutTotalPutMoney)円")
+        putMoney.text = String("\(ChangeManagement.changeManagement.putOutTotalPutMoney)円")
+        ChangeManagement.changeManagement.resetPutMoneySheetsLimit()
         allPossessionMoneyLit()
         // おつりによって増えた所持金を画面へ反映させる
-        tenYenPossessionLabel.text = String("\(changeManagement.tenYenPossession)枚")
-        fiftyYenPossessionLabel.text = String("\(changeManagement.fiftyYenPossession)枚")
-        oneHundredYenPossessionLabel.text = String("\(changeManagement.oneHundredYenPossession)枚")
-        fiveHundredYenPossessionLabel.text = String("\(changeManagement.fiveHundredYenPossession)枚")
+        tenYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.tenYenPossession)枚")
+        fiftyYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiftyYenPossession)枚")
+        oneHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.oneHundredYenPossession)枚")
+        fiveHundredYenPossessionLabel.text = String("\(ChangeManagement.changeManagement.fiveHundredYenPossession)枚")
     }
 }
